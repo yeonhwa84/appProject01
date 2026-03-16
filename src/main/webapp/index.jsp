@@ -2,7 +2,7 @@
   Class Name : index.jsp
   Description : 최초화면으로 메인화면으로 이동한다.
   Modification Information
- 수정
+ 수정ㅇㅇㅇ
       수정일         수정자                   수정내용
     -------    --------    ---------------------------
      2011.08.31  JJY       경량환sssssss경 버전 생성
