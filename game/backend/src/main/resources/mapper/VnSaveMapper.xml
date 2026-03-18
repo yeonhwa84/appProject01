@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.visualnovel.repository.VnSaveMapper">
+
+    <resultMap id="saveResultMap" type="VnSave">
+        <id     property="saveId"    column="save_id"/>
+        <result property="userId"    column="user_id"/>
+        <result property="sceneId"   column="scene_id"/>
+        <result property="affection" column="affection"
+                typeHandler="com.visualnovel.config.JsonTypeHandler"/>
+        <result property="currentBg" column="current_bg"/>
+        <result property="savedAt"   column="saved_at"/>
+    </resultMap>
+
+    <!-- 세이브 조회 -->
+    <select id="selectByUserId" parameterType="String" resultMap="saveResultMap">
+        SELECT * FROM vn_save WHERE user_id = #{userId}
+    </select>
+
+    <!-- 세이브 존재 여부 -->
+    <select id="existsByUserId" parameterType="String" resultType="boolean">
+        SELECT COUNT(*) > 0 FROM vn_save WHERE user_id = #{userId}
+    </select>
+
+    <!-- 세이브 저장 (없으면 INSERT, 있으면 UPDATE) -->
+    <insert id="upsertSave" parameterType="VnSave">
+        INSERT INTO vn_save (user_id, scene_id, affection, current_bg, saved_at)
+        VALUES (
+            #{userId}, #{sceneId},
+            #{affection, typeHandler=com.visualnovel.config.JsonTypeHandler},
+            #{currentBg}, NOW()
+        )
+        ON DUPLICATE KEY UPDATE
+            scene_id   = VALUES(scene_id),
+            affection  = VALUES(affection),
+            current_bg = VALUES(current_bg),
+            saved_at   = NOW()
+    </insert>
+
+    <!-- 세이브 삭제 -->
+    <delete id="deleteByUserId" parameterType="String">
+        DELETE FROM vn_save WHERE user_id = #{userId}
+    </delete>
+
+</mapper>
