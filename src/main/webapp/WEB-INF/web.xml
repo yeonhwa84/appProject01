@@ -56,9 +56,10 @@
 			<param-value>org.springframework.web.servlet.FrameworkServlet.CONTEXT.action</param-value>
 		</init-param>
 	</filter>
+	
 	<filter-mapping>
 		<filter-name>springSecurityFilterChain</filter-name>
-		<url-pattern>/*</url-pattern>
+		<url-pattern>*.do</url-pattern>
 	</filter-mapping>
 
 	<listener>
