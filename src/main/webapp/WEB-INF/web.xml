@@ -37,7 +37,7 @@
 		HTMLTagFilter의 경우는 파라미터에 대하여 XSS 오류 방지를 위한 변환을 처리합니다.
 		XSS 보안 위험 방지를 위하여 반드시 설정 하셔야 합니다.
 		(<c:out />의 경우 해당 뷰단의 사용한 곳에 한정하여 데이터 출력시 XSS 방지 처리가 됨)
-	-->
+
 	<filter>
 		<filter-name>HTMLTagFilter</filter-name>
 		<filter-class>egovframework.com.cmm.filter.HTMLTagFilter</filter-class>
@@ -46,7 +46,7 @@
 		<filter-name>HTMLTagFilter</filter-name>
 		<url-pattern>*.do</url-pattern>
 	</filter-mapping>
-
+	-->
 	<!-- security start -->
 	<filter>
 		<filter-name>springSecurityFilterChain</filter-name>
