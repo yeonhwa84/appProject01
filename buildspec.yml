@@ -17,4 +17,5 @@ artifacts:
     - target/*.war
     - appspec.yml
     - scripts/**/*
+	- src/main/webapp/portal/**/*
   discard-paths: no

@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /opt/tomcat10/webapps/ROOT
+    destination: /opt/tomcat10/webapps/app
 hooks:
   BeforeInstall:
     - location: scripts/stop_tomcat.sh
