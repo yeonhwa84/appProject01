@@ -19,3 +19,4 @@ artifacts:
     - scripts/**/*
     - src/main/webapp/portal/**/*
   discard-paths: no
+  
